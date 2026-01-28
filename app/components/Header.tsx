@@ -83,7 +83,7 @@ export default function Header() {
           bg-emerald-500/10
           border border-emerald-500/25
           text-emerald-300 text-xs font-semibold
-          shadow-[0_0_18px_rgba(16,185,129,0.45)]
+          
           hover:bg-emerald-500/20
           transition
         "
@@ -173,9 +173,9 @@ export default function Header() {
             href="tel:9813124320"
             className="
               hidden md:flex ml-8 items-center gap-2 px-7 py-3
-              rounded-full bg-gradient-to-r from-emerald-500 to-green-600
-              text-white text-sm font-bold
-              shadow-[0_10px_30px_rgba(16,185,129,0.45)]
+              rounded-full bg-emerald-100
+              text-emerald-950 text-sm font-semibold border border-emerald-950
+             
               hover:scale-105 transition
             "
           >
