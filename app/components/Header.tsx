@@ -188,7 +188,7 @@ export default function Header() {
             onClick={() => setMobileOpen(true)}
             className="
               md:hidden ml-auto w-11 h-11 flex items-center justify-center
-              rounded-full bg-gradient-to-r from-emerald-500 to-green-600
+              rounded-full bg-emerald-900
               text-white shadow-lg
             "
           >
