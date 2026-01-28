@@ -65,7 +65,7 @@ export default function Header() {
   return (
     <>
       {/* TOP BAR */}
-      <div className="sticky top-0 z-[100] bg-gradient-to-r from-emerald-800 to-emerald-600">
+      <div className="sticky top-0 z-[100] bg-[#06201E]">
         <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-white">
           <a
             href="https://wa.me/919813124320"

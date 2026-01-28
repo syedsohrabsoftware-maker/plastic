@@ -91,7 +91,19 @@
   </url>
 
   <url>
+    <loc>https://akplasticscrap.com/locations/alwar</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://akplasticscrap.com/locations/khushkhera</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://akplasticscrap.com/locations/tapukara</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -114,13 +126,9 @@
     <priority>0.85</priority>
   </url>
 
-  <url>
-    <loc>https://akplasticscrap.com/locations/alwar</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
+  <!-- ================= AREA + SERVICE (SEO GOLD) ================= -->
 
-  <!-- ================= AREA + SERVICE (HIGH SEO) ================= -->
+  <!-- BHIWADI -->
   <url>
     <loc>https://akplasticscrap.com/areas/bhiwadi/plastic-scrap-dealer</loc>
     <changefreq>weekly</changefreq>
@@ -133,8 +141,23 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- ALWAR -->
   <url>
-    <loc>https://akplasticscrap.com/areas/gurugram/plastic-scrap-dealer</loc>
+    <loc>https://akplasticscrap.com/areas/alwar/plastic-scrap-dealer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- KHUSHKHERA -->
+  <url>
+    <loc>https://akplasticscrap.com/areas/khushkhera/plastic-scrap-dealer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- TAPUKARA -->
+  <url>
+    <loc>https://akplasticscrap.com/areas/tapukara/plastic-scrap-dealer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
