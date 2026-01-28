@@ -8,10 +8,24 @@ import {
 } from "lucide-react";
 
 /* ===============================
-   SERVICE CONFIG (OPTIONAL)
+   TYPES
 ================================ */
 
-const SERVICES: Record<string, any> = {
+type Params = {
+  city: string;
+  service: string;
+};
+
+type ServiceInfo = {
+  title: string;
+  short: string;
+};
+
+/* ===============================
+   SERVICE CONFIG
+================================ */
+
+const SERVICES: Record<string, ServiceInfo> = {
   "plastic-scrap-dealer": {
     title: "Plastic Scrap Dealer",
     short: "plastic scrap buyer & recycling service",
@@ -50,17 +64,30 @@ const SERVICES: Record<string, any> = {
    PAGE
 ================================ */
 
-export default function AreaServicePage({ params }: any) {
+export default function AreaServicePage({
+  params,
+}: {
+  params: Params;
+}) {
   const cityRaw = params.city || "";
   const serviceRaw = params.service || "";
 
   const city =
-    cityRaw.charAt(0).toUpperCase() + cityRaw.slice(1).toLowerCase();
+    cityRaw.charAt(0).toUpperCase() +
+    cityRaw.slice(1).toLowerCase();
 
-  /* 🔥 SAFE SERVICE HANDLING (NO NOT FOUND) */
-  const serviceData =
+  /* ✅ SAFE SERVICE TITLE (NO TS ERROR) */
+  const fallbackTitle = serviceRaw
+    .split("-")
+    .map(
+      (segment) =>
+        segment.charAt(0).toUpperCase() + segment.slice(1)
+    )
+    .join(" ");
+
+  const serviceData: ServiceInfo =
     SERVICES[serviceRaw] || {
-      title: serviceRaw.replaceAll("-", " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+      title: fallbackTitle,
       short: "scrap buying & recycling service",
     };
 
@@ -116,9 +143,9 @@ export default function AreaServicePage({ params }: any) {
             "Eco-friendly process",
             "Serving industries & factories",
             "Trusted local recycler",
-          ].map((item, i) => (
+          ].map((item) => (
             <div
-              key={i}
+              key={item}
               className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
             >
               <CheckCircle2 className="text-[#0F766E] mb-3" />
@@ -137,7 +164,7 @@ export default function AreaServicePage({ params }: any) {
             </h3>
             <p className="text-gray-700 leading-relaxed">
               We provide complete {serviceData.short} in {city} including
-              scrap pickup, proper segregation, transparent weighing and
+              scrap pickup, segregation, transparent weighing and
               government-approved recycling.
             </p>
           </div>
@@ -151,37 +178,19 @@ export default function AreaServicePage({ params }: any) {
         </div>
       </section>
 
-      {/* ================= AREAS ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h3 className="text-2xl font-bold mb-6">Nearby Areas We Serve</h3>
-
-        <div className="flex flex-wrap gap-3">
-          {["Bhiwadi", "Alwar", "Neemrana", "Tapukara", "Khushkhera"].map(
-            (area) => (
-              <span
-                key={area}
-                className="px-5 py-2 bg-[#F0FDFA] rounded-full text-[#064E3B] font-medium"
-              >
-                <MapPin size={14} className="inline mr-1" /> {area}
-              </span>
-            )
-          )}
-        </div>
-      </section>
-
       {/* ================= INTERNAL LINKS ================= */}
       <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-6">
           <h3 className="text-2xl font-bold mb-8">Our Scrap Services</h3>
 
           <div className="grid md:grid-cols-2 gap-4">
-            {Object.keys(SERVICES).map((slug) => (
+            {Object.entries(SERVICES).map(([slug, data]) => (
               <Link
                 key={slug}
                 href={`/areas/${cityRaw}/${slug}`}
                 className="p-5 rounded-xl border hover:bg-[#F0FDFA] transition font-semibold"
               >
-                {SERVICES[slug].title} in {city}
+                {data.title} in {city}
               </Link>
             ))}
           </div>
@@ -213,7 +222,13 @@ export default function AreaServicePage({ params }: any) {
    SMALL COMPONENT
 ================================ */
 
-function Feature({ icon, label }: any) {
+function Feature({
+  icon,
+  label,
+}: {
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
     <div className="bg-white p-5 rounded-xl shadow text-center">
       <div className="mx-auto text-[#0F766E]">{icon}</div>
