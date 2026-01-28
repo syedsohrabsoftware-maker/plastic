@@ -64,30 +64,52 @@ export default function Header() {
 
   return (
     <>
-      {/* TOP BAR */}
-      <div className="sticky top-0 z-[100] bg-[#06201E]">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-white">
-          <a
-            href="https://wa.me/919813124320"
-            className="flex items-center gap-2 px-4 py-1 rounded-full
-            bg-white/10 border border-white/20 text-xs font-semibold"
-          >
-            <MessageCircle size={12} /> WhatsApp
-          </a>
+      {/* ================= TOP BAR – FOOTER MATCH ================= */}
+<div className="sticky top-0 z-[100]">
+  <div
+    className="
+      bg-[#081716]
+      border-b border-white/10
+      shadow-[0_8px_30px_rgba(16,185,129,0.25)]
+    "
+  >
+    <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
-          <div className="flex items-center gap-2">
-            <TopIcon><Phone size={12} /></TopIcon>
-            <TopIcon><Facebook size={12} /></TopIcon>
-            <TopIcon><Instagram size={12} /></TopIcon>
-            <TopIcon><Globe size={12} /></TopIcon>
-          </div>
-        </div>
+      {/* WHATSAPP PILL */}
+      <a
+        href="https://wa.me/919813124320"
+        className="
+          flex items-center gap-2 px-4 py-1.5 rounded-full
+          bg-emerald-500/10
+          border border-emerald-500/25
+          text-emerald-300 text-xs font-semibold
+          shadow-[0_0_18px_rgba(16,185,129,0.45)]
+          hover:bg-emerald-500/20
+          transition
+        "
+      >
+        <MessageCircle size={13} className="text-emerald-400" />
+        WhatsApp
+      </a>
+
+      {/* ICONS */}
+      <div className="flex items-center gap-3">
+        <TopIcon><Phone size={14} /></TopIcon>
+        <TopIcon><Facebook size={14} /></TopIcon>
+        <TopIcon><Instagram size={14} /></TopIcon>
+        <TopIcon><Globe size={14} /></TopIcon>
       </div>
 
-      {/* MAIN HEADER */}
-      <header className="sticky top-[40px] z-[90] bg-white/95 backdrop-blur-xl border-b shadow-md">
+    </div>
+  </div>
+</div>
+
+
+      {/* ================= MAIN HEADER ================= */}
+      <header className="sticky top-[44px] z-[90] bg-white/95 backdrop-blur-xl border-b shadow-md">
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center">
 
+          {/* LOGO */}
           <Link href="/" className="flex items-center">
             <Image
               src="/images/logo.png"
@@ -100,6 +122,7 @@ export default function Header() {
 
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex ml-auto items-center gap-12 text-[15px] font-semibold text-gray-800">
+
             <NavItem href="/" icon={<Home size={16} />} label="Home" />
             <NavItem href="/about" icon={<Info size={16} />} label="About" />
 
@@ -109,7 +132,8 @@ export default function Header() {
                 onClick={() => setServicesOpen((p) => !p)}
                 className="flex items-center gap-1 hover:text-emerald-600"
               >
-                <Briefcase size={16} /> Services
+                <Briefcase size={16} />
+                Services
                 <ChevronDown
                   size={14}
                   className={`transition ${servicesOpen ? "rotate-180" : ""}`}
@@ -117,17 +141,21 @@ export default function Header() {
               </button>
 
               <div
-                className={`absolute left-0 top-full mt-4 w-[360px]
-                bg-white rounded-2xl shadow-2xl border p-5
-                transition-all duration-300 origin-top
-                ${servicesOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}
+                className={`
+                  absolute left-0 top-full mt-4 w-[360px]
+                  bg-white rounded-2xl shadow-2xl border p-5
+                  transition-all duration-300 origin-top
+                  ${servicesOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
+                `}
               >
                 {SERVICES.map((s) => (
                   <Link
                     key={s.slug}
                     href={`/areas/${CITY}/${s.slug}`}
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg
-                    hover:bg-emerald-50 transition"
+                    className="
+                      flex items-center gap-3 px-3 py-2 rounded-lg
+                      hover:bg-emerald-50 transition
+                    "
                   >
                     {s.icon}
                     {s.label}
@@ -143,25 +171,33 @@ export default function Header() {
           {/* CTA */}
           <a
             href="tel:9813124320"
-            className="hidden md:flex ml-8 items-center gap-2 px-7 py-3
-            rounded-full bg-gradient-to-r from-emerald-500 to-green-600
-            text-white text-sm font-bold shadow-lg hover:scale-105 transition"
+            className="
+              hidden md:flex ml-8 items-center gap-2 px-7 py-3
+              rounded-full bg-gradient-to-r from-emerald-500 to-green-600
+              text-white text-sm font-bold
+              shadow-[0_10px_30px_rgba(16,185,129,0.45)]
+              hover:scale-105 transition
+            "
           >
-            <PhoneCall size={18} /> Call Now
+            <PhoneCall size={18} />
+            Call Now
           </a>
 
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setMobileOpen(true)}
-            className="md:hidden ml-auto w-11 h-11 flex items-center justify-center
-            rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white"
+            className="
+              md:hidden ml-auto w-11 h-11 flex items-center justify-center
+              rounded-full bg-gradient-to-r from-emerald-500 to-green-600
+              text-white shadow-lg
+            "
           >
             <Menu size={22} />
           </button>
         </div>
       </header>
 
-      {/* MOBILE MENU */}
+      {/* ================= MOBILE MENU ================= */}
       <MobileMenu
         open={mobileOpen}
         setOpen={setMobileOpen}
@@ -181,20 +217,23 @@ function MobileMenu({ open, setOpen, mobileServicesOpen, setMobileServicesOpen }
     <div className={`fixed inset-0 z-[120] transition-opacity ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
       <div onClick={() => setOpen(false)} className="absolute inset-0 bg-black/60" />
 
-      <div className={`absolute top-0 right-0 h-full w-[85vw] max-w-[380px]
-        bg-gradient-to-b from-emerald-800 to-emerald-950
-        px-6 py-6 transform transition-transform duration-500
-        ${open ? "translate-x-0" : "translate-x-full"}`}>
-
+      <div
+        className={`
+          absolute top-0 right-0 h-full w-[85vw] max-w-[380px]
+          bg-gradient-to-b from-emerald-900 to-emerald-950
+          px-6 py-6 transform transition-transform duration-500
+          ${open ? "translate-x-0" : "translate-x-full"}
+        `}
+      >
         <button
           onClick={() => setOpen(false)}
-          className="w-10 h-10 mb-8 flex items-center justify-center
-          rounded-full bg-white text-black"
+          className="w-10 h-10 mb-8 flex items-center justify-center rounded-full bg-white text-black"
         >
           <X size={22} />
         </button>
 
         <nav className="flex flex-col gap-6 text-white font-semibold text-lg">
+
           <MobileNav href="/" icon={<Home />} label="Home" setOpen={setOpen} />
           <MobileNav href="/about" icon={<Info />} label="About" setOpen={setOpen} />
 
@@ -210,8 +249,7 @@ function MobileMenu({ open, setOpen, mobileServicesOpen, setMobileServicesOpen }
               <ChevronDown size={18} className={`transition ${mobileServicesOpen ? "rotate-180" : ""}`} />
             </button>
 
-            <div className={`ml-4 mt-4 space-y-3 text-sm text-emerald-200
-              ${mobileServicesOpen ? "block" : "hidden"}`}>
+            <div className={`ml-4 mt-4 space-y-3 text-sm text-emerald-200 ${mobileServicesOpen ? "block" : "hidden"}`}>
               {SERVICES.map((s) => (
                 <Link
                   key={s.slug}
@@ -248,11 +286,7 @@ function NavItem({ href, icon, label }: any) {
 
 function MobileNav({ href, icon, label, setOpen }: any) {
   return (
-    <Link
-      href={href}
-      onClick={() => setOpen(false)}
-      className="flex items-center gap-3"
-    >
+    <Link href={href} onClick={() => setOpen(false)} className="flex items-center gap-3">
       {icon} {label}
     </Link>
   );
@@ -260,8 +294,19 @@ function MobileNav({ href, icon, label, setOpen }: any) {
 
 function TopIcon({ children }: any) {
   return (
-    <div className="w-7 h-7 rounded-full flex items-center justify-center
-    bg-white/10 border border-white/20 text-white">
+    <div
+      className="
+        w-7 h-7
+        rounded-full
+        flex items-center justify-center
+        bg-emerald-500/10
+        border border-emerald-500/20
+        text-emerald-400
+        hover:bg-emerald-500/20
+        transition
+        cursor-pointer
+      "
+    >
       {children}
     </div>
   );
