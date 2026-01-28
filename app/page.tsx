@@ -10,6 +10,7 @@ import LeadPopup  from "./components/LeadPopup";
 import Locations  from "./components/Locations";
 import VideoSection from "./components/VideoSection";
 import StickyCTA from "./components/StickyCTA";
+
 export default function Home() {
   return (
     <main>

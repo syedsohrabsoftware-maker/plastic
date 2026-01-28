@@ -1,19 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home -->
+  <!-- ================= HOME ================= -->
   <url>
     <loc>https://akplastic.netlify.app/</loc>
     <priority>1.0</priority>
   </url>
 
-  <!-- Services -->
+  <!-- ================= CORE PAGES ================= -->
   <url>
     <loc>https://akplastic.netlify.app/services</loc>
     <priority>0.9</priority>
   </url>
 
-  <!-- Locations (TARGET AREAS ONLY) -->
+  <url>
+    <loc>https://akplastic.netlify.app/contact</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ================= SEO LANDING PAGES ================= -->
+  <url>
+    <loc>https://akplastic.netlify.app/scrap-dealer-bhiwadi</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/pollution-free-factory-bhiwadi</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/industries</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/scrap-pickup-process</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/faq</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ================= LOCATIONS (TARGET AREAS ONLY) ================= -->
   <url>
     <loc>https://akplastic.netlify.app/locations/bhiwadi</loc>
     <priority>0.8</priority>
@@ -26,8 +57,6 @@
 
   <url>
     <loc>https://akplastic.netlify.app/locations/bilaspur</loc>
-    <priority>0.8</priority>
-  </url>
     <priority>0.8</priority>
   </url>
 
