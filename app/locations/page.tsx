@@ -9,9 +9,21 @@ const cities = [
   "greater-noida",
 ];
 
-// 🔥 SEO Metadata (per city)
-export function generateMetadata({ params }: { params: { city: string } }) {
-  const cityName = params.city.replace("-", " ");
+// ✅ REQUIRED for static build (Netlify)
+export function generateStaticParams() {
+  return cities.map((city) => ({
+    city,
+  }));
+}
+
+// 🔥 SEO Metadata (safe)
+export function generateMetadata({
+  params,
+}: {
+  params: { city?: string };
+}) {
+  const citySlug = params?.city ?? "";
+  const cityName = citySlug.replace(/-/g, " ");
 
   return {
     title: `Plastic Scrap Buyer in ${cityName} | AK Plastic Recycling`,
@@ -22,13 +34,13 @@ export function generateMetadata({ params }: { params: { city: string } }) {
 export default function CityPage({
   params,
 }: {
-  params: { city: string };
+  params: { city?: string };
 }) {
   if (!params?.city || !cities.includes(params.city)) {
     return notFound();
   }
 
-  const cityName = params.city.replace("-", " ").toUpperCase();
+  const cityName = params.city.replace(/-/g, " ").toUpperCase();
 
   return (
     <main className="py-24 max-w-5xl mx-auto px-4">
@@ -37,9 +49,9 @@ export default function CityPage({
       </h1>
 
       <p className="text-gray-700 mb-6 leading-relaxed">
-        AK Plastic Recycling is a leading plastic scrap buyer in {cityName}.
-        We provide reliable plastic scrap pickup, industrial plastic recycling,
-        and bulk scrap buying services at the best market prices.
+        AK Plastic Recycling is a leading plastic scrap buyer in {cityName}. We
+        provide reliable plastic scrap pickup, industrial plastic recycling, and
+        bulk scrap buying services at the best market prices.
       </p>
 
       <h2 className="text-2xl font-semibold mb-3">
