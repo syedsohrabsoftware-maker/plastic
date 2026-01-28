@@ -38,7 +38,7 @@ export default function Contact() {
 
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
               <strong>AK Plastic Recycling</strong> <br />
-              Godown Area, Bhiwadi <br />
+              Godown Area, Bhiwadi he samjhe <br />
               Chundhika, Rajasthan <br />
               PIN Code: <strong>301019</strong>
             </p>
