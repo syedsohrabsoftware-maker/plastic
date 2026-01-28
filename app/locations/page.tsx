@@ -1,74 +1,94 @@
-import { notFound } from "next/navigation";
+import Link from "next/link";
 
-const cities = [
-  "delhi",
-  "gurgaon",
-  "noida",
-  "faridabad",
-  "ghaziabad",
-  "greater-noida",
+const locations = [
+  {
+    name: "Bhiwadi",
+    slug: "bhiwadi",
+    desc: "Industrial plastic scrap pickup & recycling services",
+  },
+  {
+    name: "Khushkhera",
+    slug: "khushkhera",
+    desc: "Factory scrap buyer & pollution-free recycling",
+  },
+  {
+    name: "Bilaspur",
+    slug: "bilaspur",
+    desc: "Bulk plastic scrap dealer for industries",
+  },
+  {
+    name: "Manesar",
+    slug: "manesar",
+    desc: "Industrial waste & plastic recycling solutions",
+  },
+  {
+    name: "Gurugram",
+    slug: "gurugram",
+    desc: "Commercial & factory scrap pickup",
+  },
+  {
+    name: "Faridabad",
+    slug: "faridabad",
+    desc: "Plastic scrap dealer & eco recycling",
+  },
+  {
+    name: "Palwal",
+    slug: "palwal",
+    desc: "Bulk scrap buying & recycling services",
+  },
+  {
+    name: "Ballabhgarh",
+    slug: "ballabhgarh",
+    desc: "Industrial plastic scrap pickup",
+  },
+  {
+    name: "Alwar",
+    slug: "alwar",
+    desc: "Plastic scrap buyer in Rajasthan",
+  },
 ];
 
-// ✅ REQUIRED for static build (Netlify)
-export function generateStaticParams() {
-  return cities.map((city) => ({
-    city,
-  }));
-}
+export const metadata = {
+  title: "Plastic Scrap Buyer Locations | AK Plastic Recycling",
+  description:
+    "Find AK Plastic Recycling services across Bhiwadi, Khushkhera, Alwar, Manesar, Faridabad and nearby industrial areas.",
+};
 
-// 🔥 SEO Metadata (safe)
-export function generateMetadata({
-  params,
-}: {
-  params: { city?: string };
-}) {
-  const citySlug = params?.city ?? "";
-  const cityName = citySlug.replace(/-/g, " ");
-
-  return {
-    title: `Plastic Scrap Buyer in ${cityName} | AK Plastic Recycling`,
-    description: `AK Plastic Recycling is a trusted plastic scrap buyer in ${cityName}. Get best prices, fast pickup and eco-friendly recycling services.`,
-  };
-}
-
-export default function CityPage({
-  params,
-}: {
-  params: { city?: string };
-}) {
-  if (!params?.city || !cities.includes(params.city)) {
-    return notFound();
-  }
-
-  const cityName = params.city.replace(/-/g, " ").toUpperCase();
-
+export default function LocationsPage() {
   return (
-    <main className="py-24 max-w-5xl mx-auto px-4">
-      <h1 className="text-4xl font-bold mb-6">
-        Plastic Scrap Buyer in {cityName}
-      </h1>
+    <main className="py-24 max-w-7xl mx-auto px-4">
+      {/* Heading */}
+      <section className="mb-14 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          Our Service Locations
+        </h1>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          AK Plastic Recycling provides professional plastic scrap pickup and
+          recycling services across major industrial locations in Rajasthan and
+          Haryana.
+        </p>
+      </section>
 
-      <p className="text-gray-700 mb-6 leading-relaxed">
-        AK Plastic Recycling is a leading plastic scrap buyer in {cityName}. We
-        provide reliable plastic scrap pickup, industrial plastic recycling, and
-        bulk scrap buying services at the best market prices.
-      </p>
+      {/* Locations Grid */}
+      <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {locations.map((loc) => (
+          <Link
+            key={loc.slug}
+            href={`/locations/${loc.slug}`}
+            className="block rounded-3xl border p-6 bg-white
+            hover:shadow-xl transition"
+          >
+            <h2 className="text-xl font-semibold mb-2 text-gray-900">
+              Scrap Dealer in {loc.name}
+            </h2>
+            <p className="text-gray-600 text-sm mb-4">{loc.desc}</p>
 
-      <h2 className="text-2xl font-semibold mb-3">
-        Our Plastic Recycling Services in {cityName}
-      </h2>
-
-      <ul className="list-disc ml-6 space-y-2 text-gray-700 mb-8">
-        <li>Industrial plastic scrap pickup</li>
-        <li>Factory plastic waste recycling</li>
-        <li>Bulk plastic scrap buyer</li>
-        <li>Government approved recycling process</li>
-      </ul>
-
-      <p className="text-gray-700">
-        Contact us today for fast pickup and the best price for plastic scrap in{" "}
-        {cityName}.
-      </p>
+            <span className="text-[#0F766E] font-medium">
+              View services →
+            </span>
+          </Link>
+        ))}
+      </section>
     </main>
   );
 }

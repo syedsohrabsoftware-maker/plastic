@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import PickupForm from "./components/PickupForm";
 import Services from "./components/Services";
 import About from "./components/About";
+import Gallery from "./components/Gallery";
 import FAQ from "./components/FAQ";
 import Reviews from "./components/Reviews";
 import Testimonials from "./components/Testimonials";
@@ -16,9 +17,10 @@ export default function Home() {
     <main>
       <Hero />
       <PickupForm />
+      <Gallery />
       <Services />
       <About />
-       <FAQ />
+      <FAQ />
        <Reviews />
        <Testimonials />
        <WhyChooseUs />

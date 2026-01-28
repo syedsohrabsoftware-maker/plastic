@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://akplastic.netlify.app/sitemap.xml
+Sitemap: https://akplastic.com/sitemap.xml
