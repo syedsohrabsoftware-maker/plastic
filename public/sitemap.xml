@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://akplastic.netlify.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://akplastic.netlify.app/services</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Locations (TARGET AREAS ONLY) -->
+  <url>
+    <loc>https://akplastic.netlify.app/locations/bhiwadi</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/khushkhera</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/bilaspur</loc>
+    <priority>0.8</priority>
+  </url>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/manesar</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/gurugram</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/faridabad</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/palwal</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/ballabhgarh</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://akplastic.netlify.app/locations/alwar</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

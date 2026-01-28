@@ -9,6 +9,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import LeadPopup  from "./components/LeadPopup";
 import Locations  from "./components/Locations";
 import VideoSection from "./components/VideoSection";
+import StickyCTA from "./components/StickyCTA";
 export default function Home() {
   return (
     <main>
@@ -23,6 +24,7 @@ export default function Home() {
        <LeadPopup />
        <Locations />
        <VideoSection />
+       <StickyCTA />
     </main>
   );
 }
