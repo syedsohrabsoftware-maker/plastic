@@ -2,6 +2,7 @@ import {
   MapPin,
   PhoneCall,
   MessageCircle,
+  ArrowRight,
 } from "lucide-react";
 
 /* ===============================
@@ -56,12 +57,13 @@ export default function Locations() {
         {/* HEADING */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Plastic Scrap Buyer Near You
+            Scrap Dealer Near You
           </h2>
 
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            We provide fast plastic scrap pickup and recycling services across
-            major cities in <strong>Delhi NCR</strong>.
+            We are trusted <strong>plastic & metal scrap buyers</strong> providing
+            fast pickup and best prices across major cities in
+            <strong> Delhi NCR</strong>.
           </p>
         </div>
 
@@ -71,22 +73,33 @@ export default function Locations() {
             <div
               key={city.slug}
               className="group bg-white rounded-2xl p-6 shadow
-              hover:shadow-xl transition-all"
+              hover:shadow-xl transition-all flex flex-col"
             >
               {/* CITY */}
               <div className="flex items-center justify-center gap-2 mb-4">
                 <MapPin className="text-emerald-600" />
                 <h3 className="text-lg font-semibold text-gray-900">
-                  {city.name}
+                  Scrap Dealer in {city.name}
                 </h3>
               </div>
 
               <p className="text-sm text-gray-600 mb-6 text-center">
-                Plastic Scrap Buyer & Recycling Services in {city.name}
+                Looking for a <strong>scrap dealer near me</strong> in {city.name}?
+                We offer plastic scrap, PP raffia & metal scrap buying services.
               </p>
 
+              {/* SEO INTERNAL LINK */}
+              <a
+                href={`/areas/${city.slug}/scrap-dealer-near-me`}
+                className="mb-6 inline-flex items-center justify-center gap-2
+                text-emerald-700 font-semibold hover:underline"
+              >
+                View Scrap Services in {city.name}
+                <ArrowRight size={16} />
+              </a>
+
               {/* ACTIONS */}
-              <div className="flex gap-3">
+              <div className="flex gap-3 mt-auto">
                 {/* MAP */}
                 <a
                   href={city.map}
@@ -125,6 +138,7 @@ export default function Locations() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -17,7 +17,7 @@ export default function Footer() {
     <>
       {/* ================= DESKTOP FOOTER ================= */}
       <footer className="hidden md:block bg-[#081716] text-gray-300 mt-24">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-12">
 
           {/* BRAND */}
           <div>
@@ -54,17 +54,40 @@ export default function Footer() {
           </div>
 
           {/* SERVICES */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-5 tracking-wide">
-              Our Services
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li>Plastic Scrap Pickup</li>
-              <li>Industrial Plastic Recycling</li>
-              <li>Injection & Blow Scrap</li>
-              <li>Bulk Scrap Buying</li>
-            </ul>
-          </div>
+          {/* SERVICE AREAS (SEO LINKS) */}
+<div>
+  <h4 className="text-sm font-semibold text-white mb-5 tracking-wide">
+    Scrap Dealer Near Me
+  </h4>
+
+  <ul className="space-y-3 text-sm text-gray-400">
+    <li>
+      <Link href="/areas/bhiwadi/scrap-dealer-near-me">
+        Scrap Dealer in Bhiwadi
+      </Link>
+    </li>
+    <li>
+      <Link href="/areas/gurgaon/scrap-dealer-near-me">
+        Scrap Dealer in Gurgaon
+      </Link>
+    </li>
+    <li>
+      <Link href="/areas/faridabad/scrap-dealer-near-me">
+        Scrap Dealer in Faridabad
+      </Link>
+    </li>
+    <li>
+      <Link href="/areas/alwar/scrap-dealer-near-me">
+        Scrap Dealer in Alwar
+      </Link>
+    </li>
+    <li>
+      <Link href="/areas/faridabad/scrap-dealer-near-me">
+        Scrap Dealer in Delhi NCR
+      </Link>
+    </li>
+  </ul>
+</div>
 
           {/* CONTACT */}
           <div>
