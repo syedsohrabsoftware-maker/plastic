@@ -162,4 +162,34 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- gurgaon -->
+  <url>
+    <loc>https://akplasticscrap.com/areas/gurgaon/plastic-scrap-dealer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- faridabad -->
+  <url>
+    <loc>https://akplasticscrap.com/areas/faridabad/plastic-scrap-dealer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+<!-- gurgaon city page -->
+  <url>
+    <loc>https://akplasticscrap.com/areas/gurgaon/scrap-dealer-near-me</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- bhiwadi city page -->
+<url>
+    <loc>https://akplasticscrap.com/areas/bhiwadi/scrap-dealer-near-me</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- faridabad city page -->
+  <url>
+    <loc>https://akplasticscrap.com/areas/faridabad/scrap-dealer-near-me</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
