@@ -1,13 +1,13 @@
 import { MetadataRoute } from "next";
 
 /* ================================================================
-   🗺️ SITEMAP — akplasticscrap.com
-   Both old XML + new dynamic pages — fully merged & updated
+    🗺️ SITEMAP — akplasticscrap.com
+    Fully Updated with Top Plastic Buyers Hub & All Cities
 ================================================================ */
 
 const BASE_URL = "https://akplasticscrap.com";
 
-// ── Cities ─────────────────────────────────────────────────────
+// ── Cities (Updated with missing cities) ────────────────────────
 const locationCities = [
   "bhiwadi",
   "khushkhera",
@@ -18,45 +18,47 @@ const locationCities = [
   "palwal",
   "ballabhgarh",
   "alwar",
-  "tapukara", // from old XML
+  "tapukara",
+  "tauru", // ✅ Naya add kiya
 ];
 
-// ── Area+Service combos (SEO Gold — old XML se) ────────────────
+// ── Area+Service combos (SEO Gold) ─────────────────────────────
 const areaServiceCombos = [
-  { city: "bhiwadi",    service: "plastic-scrap-dealer",  priority: 0.95 },
-  { city: "bhiwadi",    service: "iron-scrap-dealer",     priority: 0.90 },
-  { city: "bhiwadi",    service: "scrap-dealer-near-me",  priority: 0.90 },
-  { city: "alwar",      service: "plastic-scrap-dealer",  priority: 0.90 },
-  { city: "khushkhera", service: "plastic-scrap-dealer",  priority: 0.90 },
-  { city: "tapukara",   service: "plastic-scrap-dealer",  priority: 0.90 },
-  { city: "gurugram",   service: "plastic-scrap-dealer",  priority: 0.90 },
-  { city: "gurugram",   service: "scrap-dealer-near-me",  priority: 0.90 },
-  { city: "faridabad",  service: "plastic-scrap-dealer",  priority: 0.90 },
-  { city: "faridabad",  service: "scrap-dealer-near-me",  priority: 0.90 },
-  { city: "manesar",    service: "plastic-scrap-dealer",  priority: 0.85 },
-  { city: "manesar",    service: "scrap-dealer-near-me",  priority: 0.85 },
-  { city: "palwal",     service: "plastic-scrap-dealer",  priority: 0.85 },
-  { city: "ballabhgarh",service: "plastic-scrap-dealer",  priority: 0.85 },
-  { city: "alwar",      service: "scrap-dealer-near-me",  priority: 0.85 },
-  { city: "bilaspur",   service: "plastic-scrap-dealer",  priority: 0.85 },
+  { city: "bhiwadi",    service: "plastic-scrap-dealer",   priority: 0.95 },
+  { city: "bhiwadi",    service: "iron-scrap-dealer",      priority: 0.90 },
+  { city: "bhiwadi",    service: "scrap-dealer-near-me",   priority: 0.90 },
+  { city: "alwar",      service: "plastic-scrap-dealer",   priority: 0.90 },
+  { city: "khushkhera", service: "plastic-scrap-dealer",   priority: 0.90 },
+  { city: "tapukara",   service: "plastic-scrap-dealer",   priority: 0.90 },
+  { city: "gurugram",   service: "plastic-scrap-dealer",   priority: 0.90 },
+  { city: "gurugram",   service: "scrap-dealer-near-me",   priority: 0.90 },
+  { city: "faridabad",  service: "plastic-scrap-dealer",   priority: 0.90 },
+  { city: "faridabad",  service: "scrap-dealer-near-me",   priority: 0.90 },
+  { city: "manesar",    service: "plastic-scrap-dealer",   priority: 0.85 },
+  { city: "manesar",    service: "scrap-dealer-near-me",   priority: 0.85 },
+  { city: "palwal",     service: "plastic-scrap-dealer",   priority: 0.85 },
+  { city: "ballabhgarh",service: "plastic-scrap-dealer",   priority: 0.85 },
+  { city: "alwar",      service: "scrap-dealer-near-me",   priority: 0.85 },
+  { city: "bilaspur",   service: "plastic-scrap-dealer",   priority: 0.85 },
+  { city: "tauru",      service: "scrap-dealer-near-me",   priority: 0.85 }, // ✅ Naya combo
 ];
 
-// ── Services (old XML slugs + new slugs merged) ────────────────
+// ── Services ───────────────────────────────────────────────────
 const services = [
-  { slug: "plastic-scrap-dealer",    priority: 0.95 },
-  { slug: "iron-scrap-dealer",       priority: 0.90 },
-  { slug: "metal-scrap-dealer",      priority: 0.90 },
-  { slug: "industrial-scrap-buyer",  priority: 0.90 },
-  { slug: "road-waste-management",   priority: 0.90 },
-  { slug: "e-waste-scrap-dealer",    priority: 0.90 },
-  { slug: "plastic-scrap-pickup",    priority: 0.85 },
-  { slug: "metal-scrap-pickup",      priority: 0.85 },
-  { slug: "e-waste-disposal",        priority: 0.85 },
-  { slug: "bulk-scrap-management",   priority: 0.85 },
-  { slug: "factory-waste-disposal",  priority: 0.85 },
+  { slug: "plastic-scrap-dealer",     priority: 0.95 },
+  { slug: "iron-scrap-dealer",        priority: 0.90 },
+  { slug: "metal-scrap-dealer",       priority: 0.90 },
+  { slug: "industrial-scrap-buyer",   priority: 0.90 },
+  { slug: "road-waste-management",    priority: 0.90 },
+  { slug: "e-waste-scrap-dealer",     priority: 0.90 },
+  { slug: "plastic-scrap-pickup",     priority: 0.85 },
+  { slug: "metal-scrap-pickup",       priority: 0.85 },
+  { slug: "e-waste-disposal",         priority: 0.85 },
+  { slug: "bulk-scrap-management",    priority: 0.85 },
+  { slug: "factory-waste-disposal",   priority: 0.85 },
 ];
 
-// ── Blog posts (old XML + new merged) ─────────────────────────
+// ── Blog posts ─────────────────────────────────────────────────
 const blogPosts = [
   "plastic-scrap-recycling-benefits",
   "how-to-sell-plastic-scrap",
@@ -74,7 +76,6 @@ const bhiwadiNested = [
   "metal-rate-today",
   "pollution-free-factory-bhiwadi",
   "scrap-dealer-bhiwadi",
-  // factory-waste-disposal already in conversion section
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -97,6 +98,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${BASE_URL}/scrap-rate-today`,
       lastModified: today,
       changeFrequency: "always",
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/areas/top-plastic-buyers`, // ✅ Naya Hub Page Add Kiya
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 1.0,
     },
     {
@@ -135,16 +142,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     // ═══════════════════════════════════════════════════════════
-    // 3. INFORMATIONAL — Priority 0.8
+    // 3. INFORMATIONAL & DYNAMIC PAGES
     // ═══════════════════════════════════════════════════════════
     {
       url: `${BASE_URL}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/industries`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
@@ -155,28 +156,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    {
-      url: `${BASE_URL}/scrap-pickup-process`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/pollution-free-factory-bhiwadi`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/faq`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
 
-    // ═══════════════════════════════════════════════════════════
-    // 4. SERVICES SUBPAGES — Priority 0.85–0.95
-    // ═══════════════════════════════════════════════════════════
+    // 4. SERVICES SUBPAGES
     ...services.map((s) => ({
       url: `${BASE_URL}/services/${s.slug}`,
       lastModified: now,
@@ -184,9 +165,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: s.priority,
     })),
 
-    // ═══════════════════════════════════════════════════════════
-    // 5. LOCATION PAGES — Priority 0.85
-    // ═══════════════════════════════════════════════════════════
+    // 5. LOCATION PAGES
     ...locationCities.map((city) => ({
       url: `${BASE_URL}/locations/${city}`,
       lastModified: now,
@@ -194,27 +173,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     })),
 
-    // Bhiwadi extra nested pages
-    ...bhiwadiNested.map((service) => ({
-      url: `${BASE_URL}/locations/bhiwadi/${service}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    })),
-
-    // ═══════════════════════════════════════════════════════════
-    // 6. AREA PAGES (city only) — Priority 0.75
-    // ═══════════════════════════════════════════════════════════
-    ...locationCities.map((city) => ({
-      url: `${BASE_URL}/areas/${city}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.75,
-    })),
-
-    // ═══════════════════════════════════════════════════════════
-    // 7. AREA + SERVICE COMBOS — SEO GOLD — Priority 0.85–0.95
-    // ═══════════════════════════════════════════════════════════
+    // 6. AREA + SERVICE COMBOS (SEO GOLD)
     ...areaServiceCombos.map((combo) => ({
       url: `${BASE_URL}/areas/${combo.city}/${combo.service}`,
       lastModified: now,
@@ -222,9 +181,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: combo.priority,
     })),
 
-    // ═══════════════════════════════════════════════════════════
-    // 8. BLOG POSTS — Priority 0.7
-    // ═══════════════════════════════════════════════════════════
+    // 7. BLOG POSTS
     ...blogPosts.map((slug) => ({
       url: `${BASE_URL}/blog/${slug}`,
       lastModified: now,
@@ -232,17 +189,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
 
-    // ═══════════════════════════════════════════════════════════
-    // 9. UTILITY — Low Priority
-    // ═══════════════════════════════════════════════════════════
+    // 8. UTILITY
     {
       url: `${BASE_URL}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${BASE_URL}/terms-and-conditions`,
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
