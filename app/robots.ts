@@ -2,15 +2,14 @@ import { MetadataRoute } from "next";
 
 /* ================================================================
    🤖 ROBOTS.TS — akplasticscrap.com
-   Googlebot & other crawlers ke liye rules
-   File location: app/robots.ts
+   Fully Optimized for ALL Slugs (Buyer, Dealer, In-City)
 ================================================================ */
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // ── Main rule: Google + Bing + all good bots ────────────
       {
+        // ── 1. Sabhi Ache Bots (Google, Bing, etc.) ────────────
         userAgent: "*",
         allow: [
           "/",
@@ -18,67 +17,62 @@ export default function robots(): MetadataRoute.Robots {
           "/locations/",
           "/areas/",
           "/blog/",
-          "/industries",
-          "/about",
-          "/contact",
-          "/faq",
           "/scrap-rate-today",
           "/scrap-dealer-bhiwadi",
-          "/scrap-pickup-process",
-          "/pollution-free-factory-bhiwadi",
+          "/scrap-buyer-in-*",    // ✅ Covers: scrap-buyer-in-jaipur
+          "/scrap-buyer-*",       // ✅ Covers: scrap-buyer-agra
+          "/scrap-dealer-*",      // ✅ IMPORTANT: Covers: scrap-dealer-khushkhera
+          "/about",
+          "/contact",
+          "/industries",
         ],
         disallow: [
-          "/api/",           // API routes crawl nahi hone chahiye
-          "/_next/",         // Next.js internals
-          "/admin/",         // admin panel agar ho
-          "/dashboard/",     // private pages
-          "/*.json$",        // JSON files
-          "/privacy-policy", // optional: crawl karna ho toh hata do
+          "/api/",
+          "/_next/",
+          "/admin/",
+          "/dashboard/",
+          "/*.json$",
+          "/privacy-policy",
           "/terms-and-conditions",
         ],
       },
 
-      // ── Block bad/spam bots ──────────────────────────────────
       {
+        // ── 2. Spam Bots (Block) ───────────────────────────────
         userAgent: [
-          "AhrefsBot",      // aggressive crawler — bandwidth waste
+          "AhrefsBot",
           "SemrushBot",
           "MJ12bot",
           "DotBot",
           "BLEXBot",
           "DataForSeoBot",
         ],
-        disallow: "/",      // inhe poora site block
+        disallow: "/", 
       },
 
-      // ── GPTBot (OpenAI) — training se bachao ────────────────
       {
+        // ── 3. AI Protection ───────────────────────────────────
         userAgent: "GPTBot",
         disallow: "/",
       },
 
-      // ── Google extended crawling ─────────────────────────────
       {
+        // ── 4. Googlebot Specific ──────────────────────────────
         userAgent: "Googlebot",
-        allow: "/",
-        disallow: [
-          "/api/",
-          "/_next/",
-          "/admin/",
+        allow: [
+          "/",
+          "/scrap-buyer-in-*",
+          "/scrap-buyer-*",
+          "/scrap-dealer-*", // ✅ Added for complete coverage
         ],
+        disallow: ["/api/", "/_next/", "/admin/"],
       },
 
-      // ── Google Images ────────────────────────────────────────
       {
         userAgent: "Googlebot-Image",
         allow: "/",
       },
     ],
-
-    // Sitemap ka URL — Google ko directly batao
     sitemap: "https://akplasticscrap.com/sitemap.xml",
-
-    // Host (optional but helpful)
-    host: "https://akplasticscrap.com",
   };
 }
